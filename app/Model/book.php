@@ -183,6 +183,7 @@
             $flag = FALSE;
             $quantity = 0;
             $price = 0;
+            $ori_price = 0;
             //檢查變數
             foreach($list as $key => $value){
                 if(!preg_match('/^[0-9]{1,2}$/' , $value)){
@@ -191,12 +192,14 @@
                     $quantity++;
                     $this->_mysql->query("select * from `book` WHERE `id`=$value");
                     $tmp = $this->_mysql->getData();
+                    $ori_price += $tmp['origin_price'];
                     $price += $tmp['sall_price'];
                 }
             }
             $adddata = array(
                 'shop_id'       => $shop_id,
                 'book_quantity' => $quantity,
+                'origin_price'  => $ori_price,
                 'sall_count'    => $price,
                 'user_id'       => $_SESSION['account_id']
             );
