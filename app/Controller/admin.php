@@ -110,9 +110,28 @@
         }
         public function edituser2(){
             $this->_model->init();
-            $this->_model->query("SELECT * from `user` WHERE id=".$this->_request->getQuery('id'));
-            $data = $this->_model->getData();
-            $this->showTemplate('admin_editUser');
+            $query = $this->_model->_mysql->query("SELECT * from `user` WHERE id=".$this->_request->getQuery('id'));
+            $this->_opdata['user'] = $this->_model->_mysql->getData();
+            $this->_opdata['editUser_url'] = conver_url('./?controller=admin&action=doedituser');
+            $this->showTemplate('admin_editUser2');
+        }
+
+        public function doedituser(){
+            debug_show($_POST);
+            $data = array(
+                'id'        => $this->_request->getPost('id'),
+                'account'   => $this->_request->getPost('account'),
+                'username'  => $this->_request->getPost('UserName'),
+                'birth'     => $this->_request->getPost('birth'),
+                'changepass'    => $this->_request->getPost('changePassword')
+            );
+            $password = $this->_request->getPost('password');
+            if(!empty($password)){
+                $data['password'] = md5(sha1(md5($password)));
+            }
+            $this->_model->init();
+            $this->_model->_mysql->update('user' , $data);
+            header('Location:'.conver_url('./?controller=admin&action=edituser'));
         }
 
         public function addshop(){

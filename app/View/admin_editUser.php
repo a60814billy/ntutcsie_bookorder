@@ -8,7 +8,7 @@
         <h1><?=$data['title']?></h1>
         <ul>
         <? foreach($data['users'] as $value) :?>
-            <li><a href="./controller=admin&action=edituser2&id=<?=$value['id']?>"><?=$value['username']?></a></li>
+            <li><a href="<?=conver_url('./?controller=admin&action=edituser2&id='.$value['id'])?>"><?=$value['username']?></a></li>
         <? endforeach ?>
         </ul>
     </body>
