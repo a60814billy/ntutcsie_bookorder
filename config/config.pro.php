@@ -4,7 +4,7 @@
         'dufault_controller'    => 'index',
         'default_action'        => 'index',
         'post_str'              => '.php',
-        'rewrite'               => '0'
+        'rewrite'               => FALSE
     );
     
     $CONFIG['system']['lib'] = array(
