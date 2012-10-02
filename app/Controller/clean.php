@@ -16,7 +16,7 @@
 		public function __construct(){
             parent::__construct();
             $this->_opdata['title'] = "掃地時間選擇系統";
-			$this->_opdata['editwork'] = 1;
+			$this->_opdata['editwork'] = 0;
             $this->_opdata['menu'] = array(
 					'完成列表'  =>  conver_url('./?controller=clean'),
                     '工作選擇'  =>  conver_url('./?controller=clean&action=edit'),
