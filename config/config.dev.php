@@ -1,10 +1,9 @@
 <?php
-    
     $CONFIG['system']['route'] = array(
         'dufault_controller'    => 'index',
         'default_action'        => 'index',
         'post_str'              => '.php',
-        'rewrite'               => TRUE
+        'rewrite'               => FALSE
     );
     
     $CONFIG['system']['lib'] = array(
@@ -15,7 +14,7 @@
     $CONFIG['system']['database'] = array(
         'hostname'  =>  'localhost',
         'username'  =>  'bookorder',
-        'password'  =>  '2F9DAmE9HVZ4N6EH',
+        'password'  =>  'NnXwBmTEhh4uAQFe',
         'database'  =>  'bookorder'
     );
     $CONFIG['system']['other'] = array(
