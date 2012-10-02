@@ -1,6 +1,6 @@
 <?php
     $EVN = 'develop';
-    $EVN = 'product';     
+    //$EVN = 'product';     
     if($EVN == 'develop'){
         include_once "config.dev.php";
     }else{
