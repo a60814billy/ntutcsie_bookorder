@@ -96,6 +96,22 @@ h1:hover{
     z-index: 1;
     position: relative;
 }
+.worklist{
+    clear: both;
+    display: block;
+    margin-top: 25px;
+    width: 680px;
+    z-index: 1;
+    position: relative;
+}
+.choiselist{
+    clear: both;
+    display: block;
+    margin-top: 25px;
+    width: 600px;
+    z-index: 1;
+    position: relative;
+}
 .item{
     display: block;
     border-left: solid 3px #52acf0;
