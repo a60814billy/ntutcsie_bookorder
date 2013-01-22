@@ -14,7 +14,7 @@
     $CONFIG['system']['database'] = array(
         'hostname'  =>  'localhost',
         'username'  =>  'bookorder',
-        'password'  =>  'NnXwBmTEhh4uAQFe',
+        'password'  =>  'c5VUq9m7rwHZKB88',
         'database'  =>  'bookorder'
     );
     $CONFIG['system']['other'] = array(

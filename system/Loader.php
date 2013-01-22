@@ -2,7 +2,13 @@
 
     define('SYS_ROOT' , dirname(__FILE__) );
     define('ROOT' , substr(SYS_ROOT , 0 , -7));
-    define('WEB_ROOT' , dirname($_SERVER['PHP_SELF']));
+
+    if(dirname($_SERVER['PHP_SELF'])=='\\'){
+        define('WEB_ROOT' , '.');
+    }else{
+        define('WEB_ROOT' , dirname($_SERVER['PHP_SELF']));
+    }
+
     define('REWRITE' , $CONFIG['system']['route']['rewrite']);
 
 
