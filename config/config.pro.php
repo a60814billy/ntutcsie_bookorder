@@ -1,10 +1,9 @@
 <?php
-    
     $CONFIG['system']['route'] = array(
         'dufault_controller'    => 'index',
         'default_action'        => 'index',
         'post_str'              => '.php',
-        'rewrite'               => FALSE
+        'rewrite'               => TRUE
     );
     
     $CONFIG['system']['lib'] = array(

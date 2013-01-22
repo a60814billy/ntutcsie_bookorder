@@ -49,7 +49,7 @@
                             <p><label><span>密碼</span><input type="password" name="password" value="<?=$data['test_password']?>" /></label></p>
                             <input type="submit" value="登入" />
                         </form>
-                        <?if(isset($data['message'])):?><div id="message"><?=$data['message']?></div><?endif?>
+                        <?php if(isset($data['message'])): ?><div id="message"><?=$data['message']?></div><?php endif ?>
                     </div>
                 </div>
             </div>

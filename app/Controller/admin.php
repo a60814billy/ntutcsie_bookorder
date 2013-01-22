@@ -9,7 +9,6 @@
  * @link        http://haraguroi-raccoon.blogspot.tw/
  */    
     class adminController extends OS_Controller{
-
         public function __construct(){
             parent::__construct();
             $this->_opdata['title'] = "訂書系統-管理";
