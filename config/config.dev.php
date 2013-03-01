@@ -13,12 +13,13 @@
 
     $CONFIG['system']['database'] = array(
         'hostname'  =>  'localhost',
-        'username'  =>  'bookorder',
-        'password'  =>  'c5VUq9m7rwHZKB88',
+        'username'  =>  'bookorderUcubl',
+        'password'  =>  'S$@{|{qIdQyH',
         'database'  =>  'bookorder'
     );
     $CONFIG['system']['other'] = array(
         'debug_mode'=>  TRUE
     );
-    
+    ini_set("display_errors" , "On");
+    error_reporting(E_ALL & ~E_NOTICE)
 ?>

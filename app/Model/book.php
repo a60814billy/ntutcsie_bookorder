@@ -140,7 +140,8 @@
          */        
         public function getOrder(){
             $this->init();
-            $this->_mysql->query("select `order`.* , shop.name as shop_name from `order` , `shop` WHERE `order`.shop_id = shop.id and `user_id`=".$_SESSION['account_id']);
+            $this->_mysql->query("select `order`.* , shop.name as shop_name from `order` , `shop` WHERE `order`.shop_id = shop.id and `user_id`=".$_SESSION['account_id']." order by `order`.id DESC");
+            
             while($rs = mysql_fetch_assoc($this->_mysql->query)){
                 $data[] = $rs;
             }

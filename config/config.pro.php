@@ -18,7 +18,7 @@
         'database'  =>  'ntutcsie'
     );
     $CONFIG['system']['other'] = array(
-        'debug_mode'=>  FALSE
+        'debug_mode'=>  TRUE
     );
     error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
     ini_set("display_errors" , "Off");

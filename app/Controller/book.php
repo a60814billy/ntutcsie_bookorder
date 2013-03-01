@@ -42,6 +42,7 @@
                 exit();
             }
             $this->_opdata['login_url'] = conver_url("./?controller=book&action=login");
+            $this->_model->init();
             $this->showTemplate('book_login');
         }
 
@@ -88,6 +89,7 @@
             $this->_opdata['form_url'] = conver_url("./index.php?controller=book&action=dologinas");
             $this->showTemplate('book_loginas');
         }
+
         public function dologinas(){
             $id = $this->_request->getPost('account_id');
             $this->_model->init();
@@ -112,7 +114,6 @@
          *
          */
         public function edit(){
-            $this->checklogin();
            $this->checklogin();
            $this->_opdata['state'] = array(
                     '0' =>  '訂單已送出(可修改)',
@@ -237,7 +238,7 @@
          *@access   private
          *
          */
-        private function checklogin(){
+        public static function checklogin(){
             if(!isset($_SESSION['account']) || ($_SESSION['login']!=1) ){
                 if($_SESSION['user']['changepass']==1){
                     header("Location:".conver_url("./index.php?controller=book&action=chpass"));
@@ -272,25 +273,11 @@
                 $data[$key]['book_list'] = $this->_model->getShopBook($value['id']);
                 $data[$key]['order_num'] = $this->_model->getOrderInformation($value['id']);
             }
-            //debug_show($data);
+
             $this->_opdata['shop'] = $data;
             $this->_opdata['order_url'] = conver_url('./?controller=book&action=order');
             $this->_opdata['now'] = strtotime( date("Y-m-d H:i:s"));
-            /*
-            if($num!=0){
-                $this->_opdata['message'] = "訂單已存在，請點選 <a href=\"./?controller=book&action=edit\" >\"修改訂單\"</a> 修改。";
-            }else{
-                
-                $this->_opdata['shop'] = $this->_model->getShopData($this->shop_id);
 
-                if( $this->_opdata['now'] > $this->_opdate['shop']['start_time'] ){
-                    $this->_opdata['order_url'] = './?controller=book&action=order';
-                    $this->_opdata['book_list'] = $this->_model->getShopBook($this->shop_id);    
-                }else{
-                    $this->_opdata['message'] = "訂購時間已過";
-                }
-                
-            }*/
             $this->showTemplate('book_main');
         }
         

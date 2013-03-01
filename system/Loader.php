@@ -22,7 +22,7 @@
         if(!REWRITE){
             return $url;
         }
-        // ./index.php?controller=xxx&action=OOO     
+        // ./index.php?controller=xxx&action=OOO&id=1
         $tmp = mb_split("\?" , $url);
         $tmp2 = mb_split("&" , $tmp[1]);
         $url = WEB_ROOT."/";
