@@ -22,7 +22,7 @@
         if(!REWRITE){
             return $url;
         }
-        // ./index.php?controller=xxx&action=OOO&id=1
+        // ./index.php?controller=xxx&action=OOO
         $tmp = mb_split("\?" , $url);
         $tmp2 = mb_split("&" , $tmp[1]);
         $url = WEB_ROOT."/";
@@ -42,8 +42,7 @@
                 $tmp3 = mb_split("=" , $value);
                 $url .= $tmp3[1].'/';
             }    
-        }
-        
+        }        
         return $url;
     }
 
@@ -55,7 +54,7 @@
         public static $_request;
         public static $_controller;
         public function __construct(){
-           
+                       
         }
 
         public static function run($config){
@@ -78,7 +77,7 @@
                 self::$_controller = new $controller();
                 self::$_controller->setConfig(self::$_config);
                 self::$_controller->setRequest(self::$_request);
-                self::$_controller->setView();                
+                self::$_controller->setView(self::$_route->controller , self::$_route->action);                
                 if( file_exists( ROOT . '/app/Model/' . self::$_route->controller . '.php')){
                     require ROOT . '/app/Model/' . self::$_route->controller . '.php';
                     
