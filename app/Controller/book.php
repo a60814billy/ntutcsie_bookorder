@@ -43,7 +43,7 @@
             }
             $this->_opdata['login_url'] = conver_url("./?controller=book&action=login");
             $this->_model->init();
-            $this->showTemplate('book_login');
+            $this->showTemplate();
         }
 
         /**
@@ -87,7 +87,7 @@
             $this->checklogin();
             $this->checkadmin();
             $this->_opdata['form_url'] = conver_url("./index.php?controller=book&action=dologinas");
-            $this->showTemplate('book_loginas');
+            $this->showTemplate();
         }
 
         public function dologinas(){
@@ -103,7 +103,7 @@
             }else{
                 $this->_opdata['message'] = "找不到使用者";
                 $this->_opdata['form_url'] = conver_url("./?controller=book&action=dologinas");
-                $this->showTemplate('book_loginas');
+                $this->showTemplate('loginas');
             }
         }
 
@@ -131,7 +131,7 @@
            if(count($this->_opdata['orders'])==0){
                $this->_opdata['message'] = "無訂單";
            }
-           $this->showTemplate('book_edit');
+           $this->showTemplate();
         }
 
         public function editorder(){
@@ -160,7 +160,7 @@
                 }
 
                 $this->_opdata['edit_url'] = conver_url("./?controller=book&action=doeditorder");
-                $this->showTemplate('book_editOrder');
+                $this->showTemplate();
             }else{
                 $this->_opdata['message'] = "該筆訂單無法修改；或是找不到訂單";   
             }
@@ -186,7 +186,7 @@
          public function chpass(){
              $this->checklogin();
              $this->_opdata['do_chpass'] = conver_url('./?controller=book&action=dochpass');
-             $this->showTemplate('user_ch_pass');
+             $this->showTemplate();
          }
          public function dochpass(){
              $this->checklogin();
@@ -194,12 +194,12 @@
              $p2 = $this->_request->getPost('current_pass');
              if(empty($p1) or empty($p2)){
                  $this->_opdata['message'] = "密碼不能空白";
-                 $this->showTemplate('user_ch_pass');
+                 $this->showTemplate('chpass');
                  exit();
              }
              if($p1 != $p2 ){
                  $this->_opdata['message'] = '兩次輸入密碼不一樣！';
-                 $this->showTemplate('user_ch_pass');
+                 $this->showTemplate('chpass');
                  exit();
              }else{
                  $this->_model->chpass($p1);
@@ -278,7 +278,7 @@
             $this->_opdata['order_url'] = conver_url('./?controller=book&action=order');
             $this->_opdata['now'] = strtotime( date("Y-m-d H:i:s"));
 
-            $this->showTemplate('book_main');
+            $this->showTemplate();
         }
         
         /**
@@ -290,6 +290,6 @@
         public function order(){
             $this->checklogin();
             $this->_opdata['message'] = $this->_model->order( $this->_request->getPost('shop_id') ,  $this->_request->getPost('order' , FALSE));
-            $this->showTemplate('book_main');
+            $this->showTemplate('main');
         }
     }

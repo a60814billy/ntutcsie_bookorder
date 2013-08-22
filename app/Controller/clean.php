@@ -37,7 +37,7 @@
             }
             $this->_opdata['login_url'] = conver_url("./?controller=clean&action=login");
 			$this->_opdata['loginname'] = "登入掃地選擇系統";
-            $this->showTemplate('book_login');
+            $this->showTemplate('index' , 'book');
 		}
 		//登入
 		public function login(){
@@ -109,7 +109,7 @@
             }
             $this->_opdata['group'] = $data;
             $this->_opdata['now'] = strtotime( date("Y-m-d H:i:s"));
-            $this->showTemplate('clean_main');
+            $this->showTemplate();
         }
 		
 		//編輯工作
@@ -150,7 +150,7 @@
 			$this->_model->_mysql->query("select work from `clean_choise` WHERE user_id=$_SESSION[account_id]");
 			$temp = $this->_model->_mysql->getData();
 			$this->_opdata['ccheck'][$temp[work]] = "checked";
-            $this->showTemplate('clean_edit');
+            $this->showTemplate();
         }
 		
 		

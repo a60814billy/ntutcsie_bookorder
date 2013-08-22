@@ -1,10 +1,10 @@
 <?php
     //路由設定
     $CONFIG['system']['route'] = array(
-        'dufault_controller'    => 'demo',
+        'dufault_controller'    => 'book',
         'default_action'        => 'index',
         'post_str'              => '.php',
-        'rewrite'               => FALSE
+        'rewrite'               => TRUE
     );
     //需載入之函式庫
     $CONFIG['system']['lib'] = array(
@@ -20,7 +20,7 @@
         'hostname'  =>  'localhost',
         'username'  =>  'root',
         'password'  =>  '123456',
-        'database'  =>  'bookorder'
+        'database'  =>  'ntutcsie'
     );
 
     //其他設定

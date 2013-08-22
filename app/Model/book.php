@@ -98,9 +98,8 @@
             $sql = "SELECT * FROM shop_product a LEFT join book b on a.book_id = b.id WHERE a.shop_id=$id ";
             $this->_mysql->query($sql);
             if($this->_mysql->getNum()>0){
-                while($rs = mysql_fetch_assoc($this->_mysql->query)){
-                    $tmp[] = $rs;
-                }    
+                $tmp = $this->_mysql->getDatas();
+                
             }
             return $tmp;
         }
@@ -141,11 +140,7 @@
         public function getOrder(){
             $this->init();
             $this->_mysql->query("select `order`.* , shop.name as shop_name from `order` , `shop` WHERE `order`.shop_id = shop.id and `user_id`=".$_SESSION['account_id']." order by `order`.id DESC");
-            
-            while($rs = mysql_fetch_assoc($this->_mysql->query)){
-                $data[] = $rs;
-            }
-            return $data;
+            return $this->_mysql->getDatas();
         }
 
         /**
@@ -158,10 +153,7 @@
          public function getOrderDetail($id){
              $this->init();
              $this->_mysql->query("select `order_detail`.* , book.name , book.class_name from `order_detail` , book where `order_detail`.book_id = book.id and order_detail.order_id =$id");
-             while($rs = mysql_fetch_assoc($this->_mysql->query)){
-                 $data[] = $rs;
-             }
-             return $data;
+             return $this->_mysql->getDatas();
          }
 
         /**

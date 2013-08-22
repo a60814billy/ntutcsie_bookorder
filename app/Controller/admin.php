@@ -35,8 +35,7 @@
         }
         
         public function index(){
-            debug_show($_SERVER);
-            $this->showTemplate('admin');
+            $this->showTemplate();
         }
 
         public function showorder(){
@@ -44,7 +43,7 @@
             
             $this->_opdata['shop'] = $this->_model->_mysql->getAllData('shop');
             $this->_opdata['form_url'] = conver_url('./?controller=admin&action=showorderbyshop');
-            $this->showTemplate('admin_show_order_select_shop');
+            $this->showTemplate();
             
         }
         public function showorderbyshop(){
@@ -74,12 +73,12 @@
                 }
             }
 
-            $this->showTemplate('admin_show_order');
+            $this->showTemplate();
         }
 
         public function addusercsv(){
             $this->_opdata['do_addusercsv_url'] = conver_url('./?controller=admin&action=doaddusercsv');
-            $this->showTemplate('admin_addusercsv');
+            $this->showTemplate();
         }
 
         public function doaddusercsv(){
@@ -105,14 +104,14 @@
         public function edituser(){
             $this->_model->init();
             $this->_opdata['users'] = $this->_model->_mysql->getAllData('user');
-            $this->showTemplate('admin_editUser');
+            $this->showTemplate();
         }
         public function edituser2(){
             $this->_model->init();
             $query = $this->_model->_mysql->query("SELECT * from `user` WHERE id=".$this->_request->getQuery('id'));
             $this->_opdata['user'] = $this->_model->_mysql->getData();
             $this->_opdata['editUser_url'] = conver_url('./?controller=admin&action=doedituser');
-            $this->showTemplate('admin_editUser2');
+            $this->showTemplate();
         }
 
         public function doedituser(){
@@ -136,7 +135,7 @@
         public function addshop(){
             $this->_opdata['addshop_url'] = conver_url('./?controller=admin&action=doaddshop');
             $this->_opdata['book_lsit'] = $this->_model->getAllBook();
-            $this->showTemplate('admin_addshop');
+            $this->showTemplate();
         }
         public function doaddshop(){
             //debug_show($_POST);
@@ -166,7 +165,7 @@
         public function editshop(){
             $this->_opdata['editshop_url'] = conver_url('./?controller=admin&action=editshopdetail');
             $this->_opdata['shop'] = $this->_model->getShop();
-            $this->showTemplate('admin_EditShop');
+            $this->showTemplate();
         }
         public function editshopdetail(){
             $shop_id = $this->_request->getPost('shop_id');
@@ -177,7 +176,7 @@
             $shop['info'] = $this->_model->getShoplist($shop_id);
             $this->_opdata['shop'] = $shop;
             $this->_opdata['editshop_url'] = conver_url("./?controller=admin&action=doeditshop");
-            $this->showTemplate('admin_editshop2');
+            $this->showTemplate();
         }
 
         public function doeditshop(){
@@ -193,7 +192,7 @@
 
         public function addbook(){
             $this->_opdata['addBook_url'] = conver_url('./?controller=admin&action=doaddbook');
-            $this->showTemplate('admin_AddBook');
+            $this->showTemplate();
         }
         public function doaddbook(){
             $bookname = $this->_request->getPost('name');
@@ -214,7 +213,7 @@
 
         public function adduser(){
             $this->_opdata['addUser_url'] = conver_url("./?controller=admin&action=addusering");
-            $this->showTemplate('admin_AddUser');
+            $this->showTemplate();
         }
 
         public function addusering(){

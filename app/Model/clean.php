@@ -23,12 +23,7 @@
             $this->init();
             $sql = "SELECT * FROM user a LEFT join clean_choise b on a.id = b.user_id WHERE b.work=$id";
             $this->_mysql->query($sql);
-            if($this->_mysql->getNum()>0){
-                while($rs = mysql_fetch_assoc($this->_mysql->query)){
-                    $tmp[] = $rs;
-                }    
-            }
-            return $tmp;
+            return $this->_mysql->getDatas();
         }
 	}
 	
